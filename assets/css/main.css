@@ -99,11 +99,17 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #935d8c;
+		background: rgb(5,0,92);
+		background: -moz-linear-gradient(180deg, rgba(5,0,92,1) 0%, rgba(34,0,130,1) 30%, rgba(97,0,130,1) 56%, rgba(221,0,87,1) 100%);
+		background: -webkit-linear-gradient(180deg, rgba(5,0,92,1) 0%, rgba(34,0,130,1) 30%, rgba(97,0,130,1) 56%, rgba(221,0,87,1) 100%);
+		background: linear-gradient(180deg, rgba(5,0,92,1) 0%, rgba(34,0,130,1) 30%, rgba(97,0,130,1) 56%, rgba(221,0,87,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#05005c",endColorstr="#dd0057",GradientType=1);
+		/*background-color: #935d8c;
 		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
 		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
 		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);*/
+
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -120,7 +126,7 @@ input, select, textarea {
 /* Type */
 
 	body {
-		background-color: #935d8c;
+		/*background-color: #935d8c;*/
 		color: rgba(255, 255, 255, 0.65);
 	}
 
@@ -2814,7 +2820,7 @@ input, select, textarea {
 	}
 
 		.features li {
-			width: calc(33.33333% - 2em);
+			width: 100% /*calc(33.33333% - 2em);*/
 			margin-left: 2em;
 			margin-top: 3em;
 			padding: 0;
@@ -2831,7 +2837,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			.features li {
-				width: calc(50% - 2em);
+				width: calc(60% - 2em);
 			}
 
 				.features li:nth-child(3) {
@@ -3707,6 +3713,13 @@ input, select, textarea {
 			text-align: center;
 		}
 
+		#footer .icons {
+			width: 100%;
+			margin: 2.5em 0 2em 0;
+			font-size: 0.8em;
+			text-align: center;
+		}
+
 		@media screen and (max-width: 1280px) {
 
 			#footer {
@@ -3731,7 +3744,7 @@ input, select, textarea {
 				}
 
 				#footer .copyright {
-					text-align: left;
+					text-align: center;
 				}
 
 		}
