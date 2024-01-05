@@ -19,10 +19,9 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<span class="logo"><img src="images/logo.svg" alt="" /></span>
+						<!--<span class="logo"><img src="images/logo.svg" alt="" /></span> -->
 						<h1>Lucy Power</h1>
-						<h2>Welcome to my portfolio!</h2>
-						<p>BSc (Hons) Computer Games Development</p>
+						<h3>BSc (Hons) Computer Games Development</h3>
 					</header>
 
 				<!-- Nav -->
@@ -53,6 +52,7 @@
 											often combining my love of gaming by creating game characters for both myself and others as gifts. </p>
 										<ul class="actions">
 											<li><a href="https://www.linkedin.com/in/lucy-power-4a35a01b9/" target="_blank" class="button">View my LinkedIn</a></li>
+											<li><a href="mailto:lucy@powersg.me.uk" target="_blank" class="button">Email me here</a></li>
 										</ul>
 									</div>
 									<span class="image"><img src="images/profilepic3.jpg" alt="" /></span>
@@ -69,154 +69,82 @@
 									</header>
 
 									<li>
+										<h3> Virtual Reality : Bowling </h3>
 
-										<h3>Procedural Content Generation : Dungeon Creator</h3>
+										<span class="image"><img src="images/bowling.png" alt="" /></span>
+
+										<p> C# || Unity </p>
+										<p> This game aimed to simulate bowling within VR. The player can play a full 10-round game of bowling, almost identical to that found in the real world. The only main difference is that the points
+										system found within this game is different. Instead of the score being multiplied based off of strikes and spares, the pins knocked down are merely added to the score as they are. Each round of bowling
+									 	lets the player throw the ball twice, the only exceptions are if the player gets a strike, or on the final round where if the player knocks down all of the pins, they get a third throw, such as is present
+										in real life bowling. If the player drops the ball before they have bowled, the ball will respawn on the table so that the player does not miss out on a throw. </p>
+										<p> The player is able to move around the environment via teleportation anchors which are placed around the map in various key places. The environment also features doors which can be opened by the player,
+										 	grabbable objects that can be moved around the map, snappable locations for the bowling balls on the table, and customisation of the bowling balls via an in-game UI system. </p>
+
+										<iframe width="420" height="315"
+										src = "https://www.youtube.com/embed/ia8OJ5OKNVw">
+									</iframe>
+									<p></p>
+
+											<ul class="actions special">
+												<li><a href="https://github.com/lucypower/VRAssignment" target="_blank" class="button">View on GitHub</a></li>
+											</ul>
+											<p></p>
+
+									</li>
+
+									<li>
+
+										<h3>Procedural Content Generation</h3>
+										<h4> Cellular Automata Dungeon Creator</h4>
 
 										<span class="image"><img src="images/70x70.gif" alt="" /></span>
 
 										<p> Unreal Engine 5 || Blueprints </p>
-										<p> The assignment for this module was to create a PCG tool within UE5. I chose a dungeon creation tool to focus on due to my love of The Binding of Isaac and the assignment
-											completed in the previous year.</p>
-										<p> I implemented a cellular automata algorithm that would look at each tile in the grid, find its neighbouring tiles, determine what colour the tiles are and what colour they
-											should become, and then changes the tile accordingly. The tool contains UI which allows the user to define the size of the grid and the density of the wall and floor tiles.
-											A generate button was present to generate the grid based off of the user defined rules, and an iterate button would run the cellular automata algorithm each time the button
-											was pressed. </p>
+										<p> During this Year 3 module, I chose to create a PCG tool prototype within UE5 that could create dungeon maps for games by using a cellular automata algorithm. This could be further expanded in the future
+											to become a real tool that develops can use. </p>
+										<p> I used UE5's blueprints to develop this prototype. The prototype features a UI for the user to use to set the defined ruleset for the algorithm to use, including flexibility on the size of the map and the
+											density of the wall:floor ratio. The user can iterate the map generate by using the relevent button, with each iteration bring the map closer to that of a dungeon. </p>
+
+										<p> One of the problems I overcame during the development was how the prototype would identify the neighbouring tiles on the generated map. UE5 blueprint arrays work in one-dimension and I wanted a two-dimensional
+											array to store the values of the map. To overcome this, I used mathematics to construct formulas that could be used to find each neighbouring tile. For example, to find the tile to the right of the tile, the formula
+											would be "x + 1", similarly, to find the tile that was directly below the tile, the formula would be "x + width". By using these formulas that I constructed, I could iterate through the one-dimensional array and find
+											every neighbouring tile. I also implemented conditions into the iteration to ensure the the empty space around the map was considered in the iteration. </p>
 
 										<ul class="actions special">
 											<li><a href="https://github.com/lucypower/PCGAssessment" target="_blank" class="button">View on GitHub</a></li>
 										</ul>
 
-									</li>
+										<h4> Procedural Dungeon Game</h4>
 
-									<li>
-										<p></p>
-										<h3>Games Development : Procedural Dungeon Game</h3>
+											<span class="image"><img src="images/tboi.gif" alt="" /></span>
+											<span class="image"><img src="images/gdgame2.PNG" alt="" /></span>
 
-										<span class="image"><img src="images/tboi.gif" alt="" /></span>
+											<p>C# || Unity</p>
+											<p> This project was inspired by The Binding of Isaac. I created a game which plays very similar to TBOI, with the dungeon being procedurally generated, randomised items spawning
+											 	and random enemies throughout the rooms. I created the dungeon generation system by creating arrays of room prefabs, which upon generation, would be randomly selected from the relevent
+												array. For example, if the dungeon required a room to the left of the room, it would randomly select a room which had an open door on the right to connect them together.</p>
+											<p> Each dungeon was generate based upon a ruleset. Depending on the floor number that the player was on, the number of rooms that could be spawned would change. The higher the floor
+												number, the more rooms that would spawn. The dungeon would spawn the number of rooms defined, then subsequently spawning a boss room and an item room as the two furthest points
+												from the starting room. </p>
 
-										<p>C# || Unity</p>
-										<p> This project was inspired by The Binding of Isaac. I created a game which plays very similar to TBOI, with the dungeon being procedurally generated, randomised items spawning
-										 	and random enemies throughout the rooms. I created the dungeon generation system by creating arrays of room prefabs, which upon generation, would be randomly selected from the relevent
-											array. For example, if the dungeon required a room to the left of the room, it would randomly select a room which had an open door on the right to connect them together.</p>
-										<p> Each dungeon was generate based upon a ruleset. Depending on the floor number that the player was on, the number of rooms that could be spawned would change. The higher the floor
-											number, the more rooms that would spawn. The dungeon would spawn the number of rooms defined, then subsequently spawning a boss room and an item room as the two furthest points
-											from the starting room. </p>
-
-											<ul class="actions special">
-												<li><a href="https://github.com/lucypower/GDAssignment2" target="_blank" class="button">View on GitHub</a></li>
-											</ul>
+												<ul class="actions special">
+													<li><a href="https://github.com/lucypower/GDAssignment2" target="_blank" class="button">View on GitHub</a></li>
+												</ul>
 
 									</li>
 
 									<li>
-
-										<h3>Game Development : Farming Game</h3>
-
-										<span class="image"><img src="images/gdgame1.PNG" alt="" /></span>
-
-										<p>C#  ||  Unity</p>
-										<p> This game was developed during the Game Development module in Year 2. The only limitations to the game was that it needed to be from a top-down perspective. The inspitations
-										for this game were Stardew Valley and Crazy Taxi, combining the farming elements and arcade elements together. Throughout the game, the player would buy and plant seeds, water and harvest crops
-										and sell them to the shopkeeper.</p>
-										<p>  The game featured two modes, an arcade mode and a time-limit mode. The arcade mode gives the player 60 seconds to score as many points as they can, where each crop that was
-											sold would add some additional time to the time. The time-limit mode plays the exact same but with a certain time limit in play that would not be increased with sold crops. </p>
-
-											<ul class="actions special">
-												<li><a href="https://github.com/lucypower/GDGame" target="_blank" class="button">View on GitHub</a></li>
-											</ul>
-
-									</li>
-
-									<li>
-										<h3>Games Engine Programming : Space Invaders</h3>
-
-										<span class="image"><img src="images/gepgame1.PNG" alt="" /></span>
-
-										<p>C# || Unity</p>
-										<p> This game was inspired by Space Invaders and combined with an original theme. The theme of the game is that the player is defending their flower garden from the space
-										 	octopi which are attacking. The player uses their watering can as a weapon, firing water at the enemies. The player only has so much water in their can and is required
-											to refill their weapon to continue defending. The enemies attack every so often, damaging to flowers if they are hit. Once the flowers take to many shots, they are destroyed
-											forever.</p>
-										<p> The player is able to destroy the enemies by hitting them with their projectiles. However, the enemies generate more enemies throughout the game. Every so often, a random
-											amount of enemies will be spawned in a random location on the screen. The player must destroy all the enemies to win. </p>
-
-											<ul class="actions special">
-												<li><a href="https://github.com/lucypower/GEPGame" target="_blank" class="button">View on GitHub</a></li>
-											</ul>
-
-									</li>
-
-									<li>
-										<h3> Fundamentals of Games and Graphical Systems : Pacman</h3>
-										<span class="image"><img src="images/foggs1.png" alt="" /></span>
-										<p> C++ || S2D </p>
-										<p> This Pacman Game was created for an assignment and was created using the S2D library which is a library created by Staffordshire University.
-											The game operates like the original pacman does but in a more open area with more ghosts.</p>
-											<p></p>
-									</li>
-
-									<ul class="actions special">
-										<li><a href="https://github.com/lucypower/FOGGSA1-Pacman" target="_blank" class="button">View on GitHub</a></li>
-									</ul>
-
-									<li>
-										<h3>Games Engine Creation : Mario Game</h3>
-										<span class="image"><img src="images/gec2.png" alt="" /></span>
-										<span class="image"><img src="images/gec1.png" alt="" /></span>
-										<p>C++ || SDL</p>
-										<p>This Mario game was created for Assignment 2 in Games Engine Creation. The game was made in Visual Studio C++ and used the SDL library. This game is played like the original Mario Bros.</p>
-										<p> </p>
-
-										<ul class="actions special">
-											<li><a href="https://github.com/lucypower/GEC-Mario-Project" target="_blank" class="button">View on GitHub</a></li>
-										</ul>
-									</li>
-
-									<li>
-										<h3>Further Games and Graphics Concepts : DirectX 11</h3>
-										<span class="image"><img src="images/FGAGSem1.jpg" alt="" /></span>
-										<p>DX11 || C++</p>
-										<p>This project was for the Semester 1 assignment. It was created using DX11 and C++. The program created displayed a series of objects which were loaded in with an OBJLoader, textures on all objects, and a flat triangle grid which is created via an array.
-										The project utilized the Vertex and Pixel shader to create suitable lighting to display the objects correctly. </p>
-										<p> </p>
-
-										<ul class="actions special">
-											<li><a href="https://github.com/lucypower/FGAGSem1" target="_blank" class="button">View on GitHub</a></li>
-										</ul>
-									</li>
-
-									<li>
-										<h3>Fundamentals of Games and Graphical Systems : OpenGL</h3>
-										<span class="image"><img src="images/opengl.jpg" alt="" /></span>
-										<p>OpenGL || C++</p>
-										<p>This project was made in Visual Studio C++ using OpenGL to create a 3D space. The project contains cubes and pyramids which freely rotate and reflect light.</p>
-										<p> </p>
-									</li>
-
-									<li>
-										<h3>Concurrent Network Applications : Server / Client Networking</h3>
-										<span class="image"><img src="images/server.png" alt="" /></span>
-										<p>C#</p>
-										<p> This project explored the use of threads to create a mini server / client service. The project is currently able to communicate between all the clients via the server. In the future this will be further
-										developed in order for more activities to be present on the server, such as a text-based game.</p>
-										<p> </p>
-									</li>
-
-									<li>
-										<h3>2020 Games Jam</h3>
-										<span class="image"><img src="images/skyrim.png" alt="" /></span>
-										<p>UE4</p>
-										<p>This games jam occured during the first week of uni as a team building activity. The group I was put with created an infinite runner game where you have to both dodge obstacles and attack enemies running at you</p>
-										<p> </p>
-									</li>
-
-									<li>
-										<h3>Technical Games Production : Level 5 Group Work (2022)</h3>
+										<h3>Technical Games Production : Level 5 Group Work</h3>
 										<span class="image"><img src="images/group.png" alt="" /></span>
 										<p>C# || Unity</p>
-										<p> This group project was conducted in the first three weeks of University after Christmas. We created a zombie shooter game where the player is required to fight the waves of zombies using guns
-										found around the map and turrets crafted from resources. I participated in this group work by creating the turret asset which will target the nearest enemy in it's radius and shoot it using the
-										gun and bullet prefabs created by another team member. At the end of the second semester we completed this game and each achieved a 1st in the module.</p>
+										<p> This project was a group project during Year 2 on the Games Programming degree. We decided upon creating a top-down, zombie wave shooter game. The player can traverse the map to find guns, ammo and resources to
+										fight off the zombies. Turrets can be crafted from the resources found around the map. </p>
+										<p> I worked on the turrets throughout the development. Once placed, the turrets will aim towards the nearest zombie enemy within the attack radius. Once the turret is aiming at the zombie, found using a
+										raycast, the turret will proceed to shoot at the enemy until it dies. Once dead, the turret will then move onto the next nearest zombie found within the radius. </p>
+										<p> A problem I overcame during this project was my previous lack of Unity knowledge. This was my first experience with using Unity but I did not let this hinder me. From Week 1, I hit the ground running
+										with learning as much about Unity as I could, from the basics to more advanced areas such as the raycast required for the turret. This was also the first time using GitHub in a group project and the experience
+									 	I gained from this allowed me to effectively work with GitHub in future group projects.</p>
 										<p> </p>
 
 										<ul class="actions special">
@@ -224,71 +152,7 @@
 										</ul>
 									</li>
 
-									<li>
-										<h3>Technical Games Production : Level 5 Group Work (2023)</h3>
 
-										<span class="image"><img src="images/tgp.PNG" alt="" /></span>
-
-										<p>C# || Unity</p>
-										<p> The game we decided upon for this group project was inspired by Ghostrunner and Neon White. The game features several different levels of various themes which the player must
-											navigate through to reach the end goal. Each level has obstacles and enemies which the player must avoid by dodging and using the crossbow weapon provided. </p>
-										<p> The parts of this game that I contributed to was creating the tutorial level, creating the water level, adding effects to various objects in the levels (such as
-												doors opening, windmills turning and gates rising), managing the GitHub and teaching other members of the group how to effectively use GitHub. </p>
-
-												<ul class="actions special">
-													<li><a href="https://github.com/StaffsUniGames/technical-games-production-assignment-2-group-08" target="_blank" class="button">View on GitHub</a></li>
-												</ul>
-									</li>
-
-									<li>
-										<h3>Games Engine Programming : Unreal Engine Prototype</h3>
-
-										<span class="image"><img src="images/gepgame2.PNG" alt="" /></span>
-
-										<p> C++ || Unreal Engine 5 || Blueprints </p>
-										<p> This project showcases some of the different things that are capable within UE5. This was my first time working in UE. The project showcases VFX, SFX, player movement,
-											player weapon shooting, item destruction, gamemode completion, AI navigation, health and damage components and UI</p>
-										<p> This project gave me an insight on how both the blueprint and C++ sides of Unreal are used and what they can do. </p>
-
-										<ul class="actions special">
-											<li><a href="https://github.com/lucypower/GEPAssignment2" target="_blank" class="button">View on GitHub</a></li>
-										</ul>
-
-									</li>
-
-									<li>
-										<h3> Virtual and Augmented Reality : AR Applications </h3>
-
-
-
-										<p> C# || Unity </p>
-										<p> I created 3 different AR applications throughout this module. One displayed an object on screen when the camera was directed at a specific picture, one which would track the users face and display an object
-											(simlar to how filters found on social media work), and one was a game where the player would need to fire at the cubes in the surrounding area, destroying all the cubes to win (similar to Face Raiders on the 3DS)</p>
-										<p> In addition to this, I created a main menu which would allow the player to choose which application they wanted access.</p>
-
-											<ul class="actions special">
-												<li><a href="https://github.com/lucypower/VRAssignment" target="_blank" class="button">View on GitHub</a></li>
-											</ul>
-
-									</li>
-
-									<li>
-										<h3> Virtual and Augmented Reality : Bowling Game </h3>
-
-										<span class="image"><img src="images/bowling.gif" alt="" /></span>
-
-										<p> C# || Unity </p>
-										<p> This is the first game that I have made within VR. It is a bowling simulation type game, where the player can play a full, 10-round game of bowling. Each round allows the
-											player to bowl twice, identical to real bowling. Subsequently, the final round of the game allows the player to bowl three times if they bowl a strike or a spare. The points system
-											is different to real life bowling, with each pin counting as one point consistently throughout the game.</p>
-										<p> In addition to the bowling, the environment is able to be navigated via teleportation anquors, doors can be opened and closed and objects around the environment can be picked up.
-											This was to show off the various techniques used within VR development, such as pulleys, grabbable objects and snappable locations.</p>
-
-											<ul class="actions special">
-												<li><a href="https://github.com/lucypower/VRAssignment" target="_blank" class="button">View on GitHub</a></li>
-											</ul>
-
-									</li>
 
 									<footer class="major">
 										<ul class="actions special">
@@ -309,45 +173,43 @@
 								</header>
 								<ul class="statistics">
 									<li class="style1">
-										<span class="icon solid fa-code-branch"></span>
-										<strong>C#</strong>
+										<strong>C#/C++</strong>
 									</li>
 									<li class="style2">
-										<span class="icon fa-folder-open"></span>
 										<strong>Unity</strong>
 									</li>
 									<li class="style3">
-										<span class="icon solid fa-signal"></span>
 										<strong>Application Testing</strong>
 									</li>
 									<li class="style4">
-										<span class="icon solid fa-laptop"></span>
-										<strong>C++</strong>
+										<strong>VR Development</strong>
 									</li>
 									<li class="style5">
-										<span class="icon fa-gem"></span>
 										<strong>Unreal Engine 5</strong>
 									</li>
+
 								</ul>
 								<!--<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>-->
-								<footer class="major">
+								<!--<footer class="major">
 									<ul class="actions special">
 										<li><a href="https://www.linkedin.com/in/lucy-power-4a35a01b9/" target="_blank" class="button">View my LinkedIn</a></li>
 									</ul>
-								</footer>
+								</footer> -->
 							</section>
 
 						<!-- Social -->
 							<section id="cta" class="main special">
 								<header class="major">
-									<h2>Twitter</h2>
+									<h2>Contact</h2>
 								</header>
 								<!-- twitter widget -->
 								<center>
-								<a class="twitter-timeline" data-width="400" data-height="600" data-theme="light" href="https://twitter.com/lucypower2002?ref_src=twsrc%5Etfw">Tweets by lucypower2002</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+								<!-- <a class="twitter-timeline" data-width="400" data-height="600" data-theme="light" href="https://twitter.com/lucypower2002?ref_src=twsrc%5Etfw">Tweets by lucypower2002</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 								<footer class="major">
 									<ul class="actions special">
-										<li><a href="https://twitter.com/lucypower2002" target="_blank" class="button">View my Twitter</a></li>
+										<li><a href="https://www.linkedin.com/in/lucy-power-4a35a01b9/" target="_blank" class="button">View my LinkedIn</a></li>
+										<li><a href="https://github.com/lucypower" target="_blank" class="button">View my GitHub</a></li>
+										<li><a href="mailto:lucy@powersg.me.uk" target="_blank" class="button">Email me here</a></li>
 									</ul>
 								</footer>
 							</center>
@@ -357,13 +219,13 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-						<section>
-							<ul class="icons">
+						<!--<section>
+							 <ul class="icons">
 								<li><a href="https://www.linkedin.com/in/lucy-power-4a35a01b9/" target="_blank" class="icon brands fa-linkedin alt"><span class="label">LinkinIn</span></a></li>
 								<li><a href="https://twitter.com/lucypower2002" target="_blank" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
 								<li><a href="https://github.com/lucypower" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
 							</ul>
-						</section>
+						</section>-->
 						<p class="copyright">&copy; Lucy Power, 2024 </p>
 					</footer>
 
