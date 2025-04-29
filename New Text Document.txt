@@ -1,0 +1,103 @@
+								<!--<li>
+		<h3> Virtual Reality : Bowling </h3>
+
+		<span class="image"><img src="images/bowling.png" alt="" /></span>
+
+		<p> C# || Unity </p>
+		<p>
+			This game aimed to simulate bowling within VR. The player can play a full 10-round game of bowling, almost identical to that found in the real world. The only main difference is that the points
+			system found within this game is different. Instead of the score being multiplied based off of strikes and spares, the pins knocked down are merely added to the score as they are. Each round of bowling
+			lets the player throw the ball twice, the only exceptions are if the player gets a strike, or on the final round where if the player knocks down all of the pins, they get a third throw, such as is present
+			in real life bowling. If the player drops the ball before they have bowled, the ball will respawn on the table so that the player does not miss out on a throw.
+		</p>
+		<p>
+			The player is able to move around the environment via teleportation anchors which are placed around the map in various key places. The environment also features doors which can be opened by the player,
+			grabbable objects that can be moved around the map, snappable locations for the bowling balls on the table, and customisation of the bowling balls via an in-game UI system.
+		</p>
+
+		<iframe width="420" height="315"
+				src="https://www.youtube.com/embed/ia8OJ5OKNVw">
+		</iframe>
+		<p></p>
+
+		<ul class="actions special">
+			<li><a href="https://github.com/lucypower/VRAssignment" target="_blank" class="button">View on GitHub</a></li>
+		</ul>
+		<p></p>
+
+	</li>
+
+	<li>
+
+		<h3>Procedural Content Generation</h3>
+		<h4> Cellular Automata Dungeon Creator</h4>
+
+		<span class="image"><img src="images/70x70.gif" alt="" /></span>
+
+		<p> Unreal Engine 5 || Blueprints </p>
+		<p>
+			During this Year 3 module, I chose to create a PCG tool prototype within UE5 that could create dungeon maps for games by using a cellular automata algorithm. This could be further expanded in the future
+			to become a real tool that develops can use.
+		</p>
+		<p>
+			I used UE5's blueprints to develop this prototype. The prototype features a UI for the user to use to set the defined ruleset for the algorithm to use, including flexibility on the size of the map and the
+			density of the wall:floor ratio. The user can iterate the map generate by using the relevent button, with each iteration bring the map closer to that of a dungeon.
+		</p>
+
+		<p>
+			One of the problems I overcame during the development was how the prototype would identify the neighbouring tiles on the generated map. UE5 blueprint arrays work in one-dimension and I wanted a two-dimensional
+			array to store the values of the map. To overcome this, I used mathematics to construct formulas that could be used to find each neighbouring tile. For example, to find the tile to the right of the tile, the formula
+			would be "x + 1", similarly, to find the tile that was directly below the tile, the formula would be "x + width". By using these formulas that I constructed, I could iterate through the one-dimensional array and find
+			every neighbouring tile. I also implemented conditions into the iteration to ensure the the empty space around the map was considered in the iteration.
+		</p>
+
+		<ul class="actions special">
+			<li><a href="https://github.com/lucypower/PCGAssessment" target="_blank" class="button">View on GitHub</a></li>
+		</ul>
+
+		<h4> Procedural Dungeon Game</h4>
+
+		<span class="image"><img src="images/tboi.gif" alt="" /></span>
+		<span class="image"><img src="images/gdgame2.png" alt="" /></span>
+
+		<p>C# || Unity</p>
+		<p>
+			This project was inspired by The Binding of Isaac. I created a game which plays very similar to TBOI, with the dungeon being procedurally generated, randomised items spawning
+			and random enemies throughout the rooms. I created the dungeon generation system by creating arrays of room prefabs, which upon generation, would be randomly selected from the relevent
+			array. For example, if the dungeon required a room to the left of the room, it would randomly select a room which had an open door on the right to connect them together.
+		</p>
+		<p>
+			Each dungeon was generate based upon a ruleset. Depending on the floor number that the player was on, the number of rooms that could be spawned would change. The higher the floor
+			number, the more rooms that would spawn. The dungeon would spawn the number of rooms defined, then subsequently spawning a boss room and an item room as the two furthest points
+			from the starting room.
+		</p>
+
+		<ul class="actions special">
+			<li><a href="https://github.com/lucypower/GDAssignment2" target="_blank" class="button">View on GitHub</a></li>
+		</ul>
+
+	</li>
+
+	<li>
+		<h3>Technical Games Production : Level 5 Group Work</h3>
+		<span class="image"><img src="images/group.png" alt="" /></span>
+		<p>C# || Unity</p>
+		<p>
+			This project was a group project during Year 2 on the Games Programming degree. We decided upon creating a top-down, zombie wave shooter game. The player can traverse the map to find guns, ammo and resources to
+			fight off the zombies. Turrets can be crafted from the resources found around the map.
+		</p>
+		<p>
+			I worked on the turrets throughout the development. Once placed, the turrets will aim towards the nearest zombie enemy within the attack radius. Once the turret is aiming at the zombie, found using a
+			raycast, the turret will proceed to shoot at the enemy until it dies. Once dead, the turret will then move onto the next nearest zombie found within the radius.
+		</p>
+		<p>
+			A problem I overcame during this project was my previous lack of Unity knowledge. This was my first experience with using Unity but I did not let this hinder me. From Week 1, I hit the ground running
+			with learning as much about Unity as I could, from the basics to more advanced areas such as the raycast required for the turret. This was also the first time using GitHub in a group project and the experience
+			I gained from this allowed me to effectively work with GitHub in future group projects.
+		</p>
+		<p> </p>
+
+		<ul class="actions special">
+			<li><a href="https://github.com/Thy-Knights-of-the-Round-Table/UnityGame" target="_blank" class="button">View on GitHub</a></li>
+		</ul>
+	</li>-->
