@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Stellar by HTML5 UP</title>
+		<title>Procedural Content Generation</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,8 +19,8 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Generic</h1>
-						<p>Ipsum dolor sit amet nullam</p>
+						<h1>Procedural Content Generation</h1>
+						<p>PCG in C++ Unreal Engine 5, using Cellular Automata and Marching Square techniques</p>
 					</header>
 
 				<!-- Main -->
@@ -28,47 +28,100 @@
 
 						<!-- Content -->
 							<section id="content" class="main">
-								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-								<h2>Magna feugiat lorem</h2>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis fames ac ante ipsum primis in faucibus.</p>
-								<p>Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Consequat leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit enim turpis lorem ipsum dolor sit amet feugiat. Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet est velit quis lorem.</p>
-								<h2>Tempus veroeros</h2>
-								<p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae ante vestibulum ante. Blandit. Ante accumsan nisi eu placerat gravida placerat adipiscing in risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit aliquet aliquet lobortis. Ultricies blandit lobortis praesent turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep. Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan mi eget adipiscing nulla. Non vestibulum ac interdum condimentum semper commodo massa arcu.</p>
-							</section>
+								<span class="image main"><img src="images/pcg1.PNG" alt="" /></span>
+								<h2>About this project</h2>
+								<span class="image right"><img src="images/pcg.gif" alt="" /></span>
+								<p>This project was part of an assignment that I did in my first term of my Masters'. The assignment required me to make a game mechanic in Unity and Unreal and then compare the tools and practices that I
+								utilised across the different engines. I chose PCG as my focus as I have a prior interest in PCG and prior experience. I wanted to push myself to learn and expand my knowledge in the area, along with gaining
+								more experience with using C++ in UE5. </p>
+								<p> The player is able to input the width, height, iteration count, and the density into the widget and generate a map based on these parameters. The player can proceed through this process as many times as they
+									wish. As a bonus feature, the player is able to choose to manoever around the map that they just created. To give incentive to expore the whole map, a number of pickups are spawned and randomly distrubuted around
+									the map. </p>
 
-					</div>
+								<h2>My Work within the Project</h2>
+								<p>As previously mentioned, I primarily used C++ to achieve this project. I have used Cellular Automata previously in both C# and Blueprints, so this part of the development was not new at all. This allowed me
+								to focus on the implementation in C++ itself, which was not too different to C#. I learnt a lot about spawning actors, making BlueprintCallable functions, BlueprintImplementableEvent functions, making 2D arrays
+							  with TArrays, plus so many more smaller things.</p>
+								<p> To push my knowledge in PCG futher, I learnt how to implement the Marching Sqaures algorithm to make my dungeon more smooth and clean. While definitely not the most efficient, I used a BlueprintImplementableEvent for
+								spawning the static meshes of each case of the Marching Square algorithm. I did this to prevent needing to define 15 different static meshes in the script, when I could instead drag and drop them into the blueprint itself. </p>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>Aliquam sed mauris</h2>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
+								<p> To ensure the player could manoever around the whole map, I identified regions throughout the map and created corridors between them until there was only one region, meaning that everywhere was accessible. I connected the
+								rooms by using the gradient of a line between two tiles to calculate each tile along the line, and set it to empty. This allowed for the corridors to be generated pretty effectively. Sometimes the map spawns with random long
+							 	corridors that don't actually attach to anything, but in hindsight, this imitates long dead ends that are often found in caves and dungeons.</p>
+
+								<pre><code> void AMapGenerator::ConnectRooms(FVector2D startCoord, FVector2D endCoord)
+{
+	float dx = endCoord.X - startCoord.X;
+	float dy = endCoord.Y - startCoord.Y;
+
+	float gradientOfLine = dy / dx;
+	float c = endCoord.Y - (gradientOfLine * endCoord.X);
+
+	if (startCoord.X == endCoord.X)
+	{
+		for (int i = startCoord.Y; i <= endCoord.Y; i++)
+		{
+			grid[startCoord.X][i] = 0;
+		}
+	}
+	else if (startCoord.Y == endCoord.Y)
+	{
+		for (int i = startCoord.X; i <= endCoord.X; i++)
+		{
+			grid[i][startCoord.Y] = 0;
+		}
+	}
+	else
+	{
+		for (int i = startCoord.X; i <= endCoord.X; i++)
+		{
+			int x = i;
+			float y = (gradientOfLine * x) + c;
+
+			y = FMath::RoundToInt(y);
+
+			if (!isnan(y))
+			{
+				for (int j = x - 1; j <= x + 1; j++)
+				{
+					for (int k = y - 1; k <= y + 1; k++)
+					{
+						grid[j][k] = 0;
+					}
+				}
+			}
+		}
+	}
+} </code></pre>
+
+								<h2> Future Improvements </h2>
+
+								<p>
+									While I am overall very happy with my work on this project, there will always be something that can be improved or worked upon. For this project, my biggest improvement would be instantiating the static meshes through
+								the C++ class instead of using a BlueprintImplementableEvent. This would increase the efficiency of the project, which would definitely help the generation times with the larger maps. Perhaps a method of preventing multiple
+							 	meshes needed to be defined individually in the header file would be to add each static mesh to an array which could then be easily called depending on the case of each tile.</p>
+
+								<span class="image fit"><img src="images/pcg4.PNG" alt="" /></span>
+								
+								<footer class="major">
+									<div class="col-6">
+									<ul class="actions special">
+										<li><a href="https://lucypower.github.io" class="button">Return to Home Page</a></li>
+										<li><a href="https://github.com/lucypower/GP_UEAssignment" class="button">View on GitHub</a></li>
+									</ul>
+									</div>
+								</footer>
+
 						</section>
-						<section>
-							<h2>Etiam feugiat</h2>
-							<dl class="alt">
-								<dt>Address</dt>
-								<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-								<dt>Phone</dt>
-								<dd>(000) 000-0000 x 0000</dd>
-								<dt>Email</dt>
-								<dd><a href="#">information@untitled.tld</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
-							</ul>
-						</section>
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
 
-			</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Lucy Power, 2025 </p>
+				</footer>
+
+		</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
